@@ -57,7 +57,7 @@ function Footer() {
         </div>
         <hr className="mt-5" />
         <div className="m-5 text-center text-gray-600">
-          &copy; 2022 Coderhariom. All Rights Reserved
+          &copy; 22024 Jacked Supplements
         </div>
       </div>
     </footer>

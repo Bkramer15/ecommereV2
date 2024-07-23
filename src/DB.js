@@ -1,19 +1,33 @@
 const mysql = require('mysql2');
 const cors = require('cors');
 const express = require('express');
+const { connect } = require('http2');
+const Connection = require('mysql/lib/Connection');
 
 const app = express();
 app.use(cors());
 
+console.log('YOu');
+
 const DB = mysql.createPool({
-  host: 'ecommcercev2.chgkyis2in10.us-east-1.rds.amazonaws.com',
-  user: 'BirhanuKramer22',
-  password: 'xwlsfQL76x',
-  database: 'ecommerce3',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+  
 });
+
+// console.log(DB);
+
+connection.connect((err) => {
+  if(err){
+    console.log("error connecting", err.stack)
+    return;
+  }
+  console.log("connected to the database")
+});
+
+connection.end();
 
 
 app.get('/', (req, res) => {
@@ -24,6 +38,7 @@ app.get('/', (req, res) => {
 app.get('/Products', (req, res) => {
   const sql = "SELECT * FROM Product";
   DB.query(sql, (err, results) => {
+    console.log('you');//ok this line works lol
     if (err) {
       console.error("Error querying database:", err);
       return res.status(500).json({ error: 'Database query error' });
@@ -32,6 +47,8 @@ app.get('/Products', (req, res) => {
     return res.json(results);
   });
 });
+
+// console.log("just checking if this line works");
 
 // Get bestseller products from the database
 app.get('/Bestsellers', (req, res) => {
@@ -45,6 +62,8 @@ app.get('/Bestsellers', (req, res) => {
     return res.json(results);
   });
 });
+
+console.log('trjrokroekorkeerr')
 
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {

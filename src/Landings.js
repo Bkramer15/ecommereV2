@@ -6,7 +6,7 @@ function MainPages() {
     return (
         <div className="bg-gray-100">
             {/* Banner Section */}
-            <div className="relative h-60 sm:h-60 md:h-70 lg:h-82 object-cover   w-full">
+            <div className="relative h-60 sm:h-60 md:h-70 lg:h-82 w-full">
                 <img
                     src="https://www.nutritionsystems.co.nz/wp-content/uploads/2024/06/Ryse_Banner.jpeg"
                     alt="banner"
