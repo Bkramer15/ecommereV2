@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+require('dotenv').config();
 
 function Products({ ProductsEndpoint }) {
     const [products, setProducts] = useState([]);
@@ -15,7 +16,13 @@ function Products({ ProductsEndpoint }) {
 
     // Function to fetch products from the server using props to pass endpoints dynanmically
     const fetchProducts = (endpoint) => {
-        fetch(`http://localhost:8081${endpoint}`)
+        let baseURL = "http://localhost:8081";
+            
+        if(process.env.NODE_ENV !== "dev"){
+            baseURL = "https://main.d3qv5lecncmpfd.amplifyapp.com";
+        }
+
+        fetch(`${baseURL}/${endpoint}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

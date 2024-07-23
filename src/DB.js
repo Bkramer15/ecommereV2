@@ -1,6 +1,12 @@
+require('dotenv').config()
+
+
 const mysql = require('mysql2');
 const cors = require('cors');
 const express = require('express');
+
+console.log("hgello")
+console.log(process.env);
 
 const app = express();
 app.use(cors());
@@ -9,6 +15,7 @@ app.use(cors());
 const DB = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
+  port: DB_PORT || 3306, 
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   waitForConnections: true,
