@@ -15,7 +15,7 @@ app.use(cors());
 const DB = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
-  port: DB_PORT || 3306, 
+  // port: DB_PORT || 3306, 
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   waitForConnections: true,
@@ -23,17 +23,7 @@ const DB = mysql.createPool({
   queueLimit: 0
 });
 
-// Test the database connection
-DB.getConnection((err, connection) => {
-  if (err) {
-    console.error('Error connecting to database:', err);
-    return;
-  }
-  console.log('Connected to the database');
 
-  // Release the connection
-  connection.release();
-});
 
 // Route to test if the server is running
 app.get('/', (req, res) => {
