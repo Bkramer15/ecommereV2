@@ -50,7 +50,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+
+
+
   },
+  "proxy":"http://localhost:8081",
+  
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
@@ -60,4 +65,7 @@
   "main": "tailwind.config.js",
   "author": "",
   "license": "ISC"
+
+
+
 }
