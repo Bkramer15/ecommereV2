@@ -1,20 +1,22 @@
 require('dotenv').config()
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'build')));
 
 const mysql = require('mysql2');
 const cors = require('cors');
 const express = require('express');
 const path = require('path');
 
-console.log("hgello")
-console.log(process.env);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+
 
 const app = express();
 app.use(cors());
+
 
 
 
