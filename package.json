@@ -54,8 +54,8 @@
 
 
   },
-  "proxy":"http://localhost:8081",
-  
+
+
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
